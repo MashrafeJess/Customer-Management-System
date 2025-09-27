@@ -31,6 +31,18 @@ namespace API.Controllers
             Result result = new UserService().GetUserById(userId);
             return result;
         }
+        [HttpPut]
+        public Result UpdateCustomer([FromBody] Customer updatedCustomer)
+        {
+            var result = new UserService().UpdateUser(updatedCustomer);
+            return result;
+        }
+        [HttpDelete]
+        public Result DeleteCustomer(string userId)
+        {
+            Result result = new UserService().DeleteUser(userId);
+            return result;
+        }
     }
 
 

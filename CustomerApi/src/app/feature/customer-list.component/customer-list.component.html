@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <h2 class="mb-4 text-center text-primary">Customer List</h2>
+
+  <div class="card shadow-sm">
+    <div class="card-body p-0">
+      <table class="table table-hover mb-0">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col" class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customers; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.address || '-' }}</td>
+            <td>{{ customer.dateofBirth | date:'mediumDate' }}</td>
+            <td class="text-center">
+              <button class="btn btn-sm btn-primary" (click)="editCustomer(customer.customerId || '')">Edit</button>
+
+              <button class="btn btn-sm btn-danger" (click)="deleteCustomer(customer.customerId ?? '')" title="Delete">
+                <i class="bi bi-trash-fill"></i>
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="customers.length === 0">
+            <td colspan="6" class="text-center text-muted py-3">No customers found.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Optional message -->
+  <div *ngIf="message" class="alert alert-info mt-3 text-center">{{ message }}</div>
+</div>

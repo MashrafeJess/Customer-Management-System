@@ -54,19 +54,56 @@ namespace Business
         {
             var user = context.Customer.Find(updatedCustomer.CustomerId);
             if (user == null)
-            {
                 return new Result(false, "User Not Found");
-            }
-            user.Name = updatedCustomer.Name;
-            user.Email = updatedCustomer.Email;
+
+            // Update only if new value is provided
+            if (!string.IsNullOrEmpty(updatedCustomer.Name))
+                user.Name = updatedCustomer.Name;
+
+            if (!string.IsNullOrEmpty(updatedCustomer.Email))
+                user.Email = updatedCustomer.Email;
+
             if (!string.IsNullOrEmpty(updatedCustomer.Password))
-            {
                 user.Password = new PasswordHasher<object>().HashPassword(user, updatedCustomer.Password);
+
+            if (updatedCustomer.DateofBirth != null)
+                user.DateofBirth = updatedCustomer.DateofBirth;
+
+            if (!string.IsNullOrEmpty(updatedCustomer.Address))
+                user.Address = updatedCustomer.Address;
+
+            try
+            {
+                return new Result().DBcommit(context, "Successfully updated", null, user);
             }
-            user.DateofBirth = updatedCustomer.DateofBirth;
-            user.Address = updatedCustomer.Address;
-            context.Customer.Update(user);
-            return new Result().DBcommit(context, "User Updated Successfully", null, user);
+            catch (Exception ex)
+            {
+                return new Result(false, "Update failed: " + ex.Message, null);
+            }
         }
+
+
+        public Result DeleteUser(string userId)
+        {
+            if (!int.TryParse(userId, out int id))
+                return new Result(false, "Invalid User ID");
+
+            var user = context.Customer.Find(id);
+            if (user == null)
+                return new Result(false, "User Not Found");
+
+            context.Remove(user);
+
+            try
+            {
+                context.SaveChanges(); // or DBcommit without returning the deleted entity
+                return new Result(true, "User Deleted Successfully", null);
+            }
+            catch (Exception ex)
+            {
+                return new Result(false, ex.Message, null);
+            }
+        }
+
     }
 }
