@@ -1,0 +1,25 @@
+<div class="container mt-4" *ngIf="!loading && customer">
+  <h2 class="text-center mb-4">Customer Details</h2>
+
+  <div class="card p-3 shadow-sm">
+    <h4 class="mb-3">{{ customer.name }}</h4>
+    <p><strong>Email:</strong> {{ customer.email }}</p>
+    <p *ngIf="customer.address"><strong>Address:</strong> {{ customer.address }}</p>
+    <p *ngIf="customer.dateofBirth"><strong>Date of Birth:</strong> {{ customer.dateofBirth | date:'longDate' }}</p>
+    <p><strong>Customer ID:</strong> {{ customer.customerId }}</p>
+  </div>
+
+  <div class="text-center mt-4">
+    <button class="btn btn-primary" (click)="printPage()">
+      <i class="bi bi-printer me-2"></i>Print
+    </button>
+  </div>
+</div>
+
+<div *ngIf="loading" class="text-center mt-5">
+  Loading customer details...
+</div>
+
+<div *ngIf="message" class="alert alert-danger mt-3">
+  {{ message }}
+</div>

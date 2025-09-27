@@ -1,0 +1,56 @@
+<div class="container mt-5">
+  <div class="card shadow-lg p-4 mx-auto" style="max-width: 600px; border-radius: 1rem;">
+    <h2 class="text-center mb-4 text-primary">Create Customer</h2>
+
+    <form [formGroup]="customerForm" (ngSubmit)="submit()" novalidate>
+
+      <!-- Name -->
+      <div class="form-floating mb-3">
+        <input id="name" type="text" formControlName="name" class="form-control"
+               [ngClass]="{'is-invalid': customerForm.get('name')?.invalid && customerForm.get('name')?.touched}">
+        <label for="name"><i class="bi bi-person-fill me-2"></i>Name *</label>
+        <div class="invalid-feedback">Name is required.</div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-floating mb-3">
+        <input id="email" type="email" formControlName="email" class="form-control"
+               [ngClass]="{'is-invalid': customerForm.get('email')?.invalid && customerForm.get('email')?.touched}">
+        <label for="email"><i class="bi bi-envelope-fill me-2"></i>Email *</label>
+        <div class="invalid-feedback">Valid email is required.</div>
+      </div>
+
+      <!-- Password -->
+      <div class="form-floating mb-3 position-relative">
+        <input id="password" type="password" formControlName="password" class="form-control"
+               [ngClass]="{'is-invalid': customerForm.get('password')?.invalid && customerForm.get('password')?.touched}">
+        <label for="password"><i class="bi bi-lock-fill me-2"></i>Password *</label>
+        <div class="invalid-feedback">Password must be at least 6 characters.</div>
+      </div>
+
+      <!-- Address -->
+      <div class="form-floating mb-3">
+        <input id="address" type="text" formControlName="address" class="form-control">
+        <label for="address"><i class="bi bi-geo-alt-fill me-2"></i>Address</label>
+      </div>
+
+      <!-- Date of Birth -->
+      <div class="form-floating mb-4">
+        <input id="dob" type="date" formControlName="dateofBirth" class="form-control">
+        <label for="dob"><i class="bi bi-calendar-date-fill me-2"></i>Date of Birth</label>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="d-grid mb-3">
+        <button type="submit" class="btn btn-gradient btn-lg"
+                [disabled]="submitting" style="background: linear-gradient(90deg,#ff4d4d,#ff1a75); color: #fff; font-weight: bold;">
+          <span *ngIf="submitting"><i class="bi bi-arrow-clockwise me-2"></i>Submitting...</span>
+          <span *ngIf="!submitting"><i class="bi bi-check-circle me-2"></i>Create Customer</span>
+        </button>
+      </div>
+    </form>
+
+    <!-- Message -->
+    <div *ngIf="message" class="alert alert-info mt-3 text-center">{{ message }}</div>
+  </div>
+</div>

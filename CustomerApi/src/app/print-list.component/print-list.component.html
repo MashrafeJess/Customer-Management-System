@@ -1,0 +1,43 @@
+<div class="container mt-4">
+  <!-- Title & Print Button -->
+  <div class="d-flex justify-content-between align-items-center mb-3 no-print">
+    <h2>Customer List</h2>
+    <button class="btn btn-primary" (click)="printPage()">
+      <i class="bi bi-printer me-2"></i> Print
+    </button>
+  </div>
+
+  <!-- Error message -->
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="alert alert-info">Loading customers...</div>
+
+  <!-- Customer Table -->
+  <div *ngIf="!loading && customers.length > 0" class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Date of Birth</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customers; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.address }}</td>
+          <td>{{ customer.dateofBirth | date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="!loading && customers.length === 0" class="alert alert-warning">
+    No customers found.
+  </div>
+</div>

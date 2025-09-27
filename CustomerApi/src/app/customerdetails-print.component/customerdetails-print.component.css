@@ -1,0 +1,13 @@
+/* customer-details-print.component.css */
+@media print {
+  app-header,
+  app-sidebar,
+  app-footer {
+    display: none !important; /* Hide header, sidebar, footer when printing */
+  }
+
+  .container {
+    margin: 0;
+    width: 100%;
+  }
+}

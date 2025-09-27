@@ -1,0 +1,15 @@
+<app-header *ngIf="!isPrintPage"></app-header>
+
+<div class="d-flex" *ngIf="!isPrintPage">
+  <app-sidebar class="flex-shrink-0"></app-sidebar>
+  <div class="flex-grow-1 p-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!-- Print page (full screen, no sidebar/header/footer) -->
+<div *ngIf="isPrintPage">
+  <router-outlet></router-outlet>
+</div>
+
+<app-footer *ngIf="!isPrintPage"></app-footer>
