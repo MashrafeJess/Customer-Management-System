@@ -19,12 +19,19 @@ A modern, full-stack Customer Management System for efficiently managing custome
 
 ## **🛠️ Tech Stack**
 
-**Backend** : ![My Skills](https://skillicons.dev/icons?i=cs,dotnet,&perline=3)
-**Database** :
+**Backend** :                                                                                                                                                                     
+![My Skills](https://skillicons.dev/icons?i=cs,dotnet,&perline=3)
+
+
+**Database** :                                                                                                                                                        
 ![My Skills](https://skillicons.dev/icons?i=postgres&perline=3)
-**Frontend**:
+
+
+**Frontend**:                                                                                                                                                                    
 ![My Skills](https://skillicons.dev/icons?i=angular,typescript,rxjs&perline=3)
-**UI & Design** :
+
+
+**UI & Design** :                                                                                                                                                                
 ![My Skills](https://skillicons.dev/icons?i=html,css,js,bootstrap,figma&perline=5)
 
 **Security**: ASP.NET Identity      
@@ -46,10 +53,10 @@ Perfect **portfolio project** showcasing both frontend and backend skills.
 **Screenshots**
 <img src="https://raw.githubusercontent.com/MashrafeJess/Customer-Management-System/refs/heads/main/Design/Desktop%20-%201.jpg">
 <img src="https://raw.githubusercontent.com/MashrafeJess/Customer-Management-System/refs/heads/main/Design/Desktop%20-%202.jpg">
-<img src=""https://raw.githubusercontent.com/MashrafeJess/Customer-Management-System/refs/heads/main/Design/Desktop%20-%203.jpg>
-<img src=""https://raw.githubusercontent.com/MashrafeJess/Customer-Management-System/refs/heads/main/Design/Desktop%20-%204.jpg>
+<img src="https://raw.githubusercontent.com/MashrafeJess/Customer-Management-System/refs/heads/main/Design/Desktop%20-%203.jpg">
+<img src="https://raw.githubusercontent.com/MashrafeJess/Customer-Management-System/refs/heads/main/Design/Desktop%20-%204.jpg">
 <img src="https://raw.githubusercontent.com/MashrafeJess/Customer-Management-System/refs/heads/main/Design/Desktop%20-%205.jpg">
-<img src=""https://raw.githubusercontent.com/MashrafeJess/Customer-Management-System/refs/heads/main/Design/Desktop-6.png>
+<img src="https://raw.githubusercontent.com/MashrafeJess/Customer-Management-System/refs/heads/main/Design/Desktop-6.png">
 
 ## **🔗 Live Demo / How to Run**
 **Backend:**
