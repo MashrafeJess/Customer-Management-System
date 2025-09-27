@@ -85,10 +85,8 @@ namespace Business
 
         public Result DeleteUser(string userId)
         {
-            if (!int.TryParse(userId, out int id))
-                return new Result(false, "Invalid User ID");
 
-            var user = context.Customer.Find(id);
+            var user = context.Customer.Find(userId);
             if (user == null)
                 return new Result(false, "User Not Found");
 

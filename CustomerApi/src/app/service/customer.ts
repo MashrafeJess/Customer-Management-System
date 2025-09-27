@@ -38,6 +38,6 @@ updateCustomer(customerId: string, customer: Customer): Observable<Result<Custom
 
 
   deleteCustomer(id: string): Observable<Result<null>> {
-    return this.http.delete<Result<null>>(`${this.apiUrl}/DeleteCustomer/${id}`);
+    return this.http.delete<Result<null>>(`${this.apiUrl}/DeleteCustomer?userId=${id}`);
   }
 }

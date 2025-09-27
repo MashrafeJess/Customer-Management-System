@@ -1,0 +1,18 @@
+/* Hide sidebar, header, footer when printing */
+@media print {
+  app-header,
+  app-sidebar,
+  app-footer,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Expand content for print */
+  .container {
+    max-width: 100% !important;
+  }
+
+  table {
+    font-size: 12px;
+  }
+}
